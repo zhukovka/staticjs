@@ -1,0 +1,2 @@
+# staticjs
+OdessaJS
