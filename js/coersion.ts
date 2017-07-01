@@ -1,0 +1,4 @@
+/*
+* JavaScript coercion
+*/
+var objArr = {}+[];
