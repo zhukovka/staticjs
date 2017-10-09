@@ -1,0 +1,104 @@
+Strict JavaScript.
+JS is conceived as a dynamic weak typing language, but more and more people add strict typing to JavaScript. Google, Facebook and Microsoft offer their solutions for statically typed JavaScript. Why is this happening and should you switch to strict JavaScript?
+
+JS - динамический язык
+JS задуман как динамический язык. Почему?
+Коротко об истории JS (какие языки взяты в основу) и бизнес причинах динамической типизации (низкий порог входа для новичков).
+Прекрасная статья о том, что значит писать JS в 2016		 	 	 		
+https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f	 	 	 		
+			
+				
+					
+As I’ve often said, and as others at Netscape can confirm, I was recruited to Netscape with the promise of “doing Scheme” in the browser. 
+				
+			
+		
+		 	 	 		
+			
+				
+					
+Whether that language should be Scheme was an open question, but Scheme was the bait I went for in joining Netscape. 
+				
+			
+		
+		 	 	 		
+			
+				
+					
+The big debate inside Netscape therefore became “why two languages? why not just Java?” The answer was that two languages were required to serve the two mostly-disjoint audiences in the programming ziggurat who most deserved dedicated programming languages: the component authors, who wrote in C++ or (we hoped) Java; and the “scripters”, amateur or pro, who would write code directly embedded in HTML.
+					
+Whether any existing language could be used, instead of inventing a new one, was also not something I decided. The diktat from upper engineering management was that the language must “look like Java”.  
+				
+			
+		
+		 	 	 		
+			
+				
+					
+I’m not proud, but I’m happy that I chose Scheme-ish first-class functions and Self-ish (albeit singular) prototypes as the main ingredients. The Java influences, especially y2k Date bugs but also the primitive vs. object distinction (e.g., string vs. String), were unfortunate. 
+				
+ I still think of it as a quickie love-child of C and Self. 
+				
+			
+		
+			
+				
+					
+The impetus was the belief on the part of at least Marc Andreessen and myself, along with Bill Joy of Sun, that HTML needed a "scripting language", a programming language that was easy to use by amateurs and novices, where the code could be written directly in source form as part of the Web page markup. We aimed to provide a "glue language" for the Web designers and part time programmers who were building Web content from components such as images, plugins, and Java applets. We saw Java as the "component language" used by higher-priced programmers, where the glue programmers -- the Web page designers -- would assemble components and automate their interactions using JS. 
+				
+			
+		
+		 	 	 		
+			
+				
+					
+ I spent about ten days in May 1995 developing the interpreter, including the built-in objects except for the Date class (Ken Smith of Netscape helped write that by translating Java's java.util.Date class to C, unintentionally inheriting java.util.Date's Y2K bugs in the process!) 
+				
+			
+		
+		 	 	 		
+			
+				
+					
+ I did not intend JS to be a "target" language for compilers such as Google Web Toolkit (GWT) or (before GWT) HaXe and similar such code generators, which take a different source language and produce JS as the "object" or "target" executable language.
+					
+The code generator approach uses JS as a "safe" mid-level intermediate language between a high-level source language written on the server side, and the optimized C or C++ code in the browser that implements JS. This stresses different performance paths in the JS engine code, and potentially causes people to push for features in the Ecma standard that are not appropriate for most human coders. 
+				
+			
+		
+
+
+Способы сделать JS статическим
+Обзор инструментов (transpilers) для написания JS со статической типизацией.
+Typescript, dart, flow, stjs.
+Краткая демонстрация работы этих инструментов (видео в слайдах).
+Причины использовать статический JS
+Почему многие разработчики и фреймворки (Angular2, React) используют статический JS?
+Демонстрация и сравнительная характеристика преимуществ и недостатков статической типизации перед динамической.
+Прогнозы для статической типизации
+Является ли статическая типизация следующим шагом в развитии JS разработчика? Будет ли распространяться тренд статической типизации JS?  
+“JavaScript was influenced by several programming languages: The Lisp dialect Scheme gave it its rules for variable scoping, including closures. The Self programming language—a Smalltalk descendant—gave it prototypal inheritance (object-based as opposed to class-based).”
+Excerpt From: Axel Rauschmayer. “The Past, Present, and Future of JavaScript.” iBooks. https://itun.es/us/_OZTG.l
+“ECMAScript Harmony goal (1c) might be surprising: “Be a better language for writing code generators.” But JavaScript is indeed increasingly becoming the target language for compilers. A few examples:
+The Google Web Toolkit (GWT) allows one to write web applications completely in Java. On the server, Java is executed directly. On the client, it is compiled to JavaScript.”
+
+Excerpt From: Axel Rauschmayer. “The Past, Present, and Future of JavaScript.” iBooks. https://itun.es/us/_OZTG.l
+---
+“It was once said, “JavaScript is the only language developers don’t learn to use before using it.”
+Excerpt From: Kyle Simpson. “You Don’t Know JS: Types & Grammar.” iBooks. 
+
+“It is simultaneously a simple, easy-to-use language that has broad appeal, and a complex and nuanced collection of language mechanics that without careful study will elude true understanding even for the most seasoned of JavaScript developers.”
+Excerpt From: Kyle Simpson. “You Don’t Know JS: Types & Grammar.” iBooks. 
+---
+		 	 	 		
+			
+				
+					
+						
+JavaScript is built on some very good ideas and a few very bad ones.
+						
+The very good ideas include functions, loose typing, dynamic objects, and an expres- sive object literal notation. The bad ideas include a programming model based on global variables.
+						
+JavaScript’s functions are first class objects with (mostly) lexical scoping. JavaScript is the first lambda language to go mainstream. Deep down, JavaScript has more in common with Lisp and Scheme than with Java. It is Lisp in C’s clothing. This makes JavaScript a remarkably powerful language.
+						
+The fashion in most programming languages today demands strong typing. The the- ory is that strong typing allows a compiler to detect a large class of errors at compile time. The sooner we can detect and repair errors, the less they cost us. JavaScript is a loosely typed language, so JavaScript compilers are unable to detect type errors. This can be alarming to people who are coming to JavaScript from strongly typed lan- guages. But it turns out that strong typing does not eliminate the need for careful testing. And I have found in my work that the sorts of errors that strong type check- ing finds are not the errors I worry about. On the other hand, I find loose typing to be liberating. I don’t need to form complex class hierarchies. And I never have to cast or wrestle with the type system to get the behavior that I want. 
